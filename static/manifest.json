@@ -1,8 +1,9 @@
 {
   "manifest_version": 3,
-  "name": "Doze",
+  "name": "Doze – Smart Tab Sleeper",
+  "short_name": "Doze",
   "version": "0.3.0",
-  "description": "Puts the tabs you aren't using to sleep so Chrome can free their memory.",
+  "description": "Puts the tabs you aren't using to sleep so Chrome gives their memory back. Explains every call, measures what it frees.",
   "minimum_chrome_version": "121",
   "permissions": ["tabs", "storage", "alarms", "contextMenus", "favicon", "system.memory", "system.cpu", "scripting", "sidePanel"],
   "optional_host_permissions": ["<all_urls>"],

@@ -6,7 +6,8 @@
   "scripts": {
     "build": "bun run build.ts",
     "typecheck": "tsc --noEmit",
-    "test": "bun test"
+    "test": "bun test",
+    "package": "bun run build && cd dist && rm -f ../doze.zip && zip -qr ../doze.zip . -x '.*'"
   },
   "devDependencies": {
     "@types/bun": "^1.4.3",
