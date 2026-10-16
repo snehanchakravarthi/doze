@@ -1,0 +1,18 @@
+{
+  "name": "doze",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "bun run build.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "bun test"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.4.3",
+    "@types/chrome": "^0.3.5",
+    "typescript": "^7.0.2"
+  },
+  "description": "Chrome extension that puts the tabs you aren't using to sleep, so Chrome gives their memory back.",
+  "license": "MIT"
+}

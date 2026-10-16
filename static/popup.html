@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Doze</title>
+    <link rel="stylesheet" href="popup.css" />
+    <script type="module" src="popup.js"></script>
+  </head>
+  <body>
+    <header class="hero">
+      <div class="gauge" id="gauge" data-pressure="calm" aria-hidden="true">
+        <svg viewBox="0 0 48 48">
+          <circle class="track" cx="24" cy="24" r="20" />
+          <circle class="fill" id="gauge-fill" cx="24" cy="24" r="20" />
+        </svg>
+        <span class="gauge-value" id="gauge-value">–</span>
+      </div>
+      <div class="hero-text">
+        <p class="headline" id="headline">Checking your Mac…</p>
+        <p class="vitals" id="vitals">&nbsp;</p>
+      </div>
+    </header>
+
+    <p class="insight" id="insight">&nbsp;</p>
+
+    <div class="actions">
+      <button id="sleep-suggested" class="button primary" type="button"></button>
+      <button id="close-duplicates" class="button" type="button"></button>
+    </div>
+
+    <div class="toast" id="toast" role="status" hidden>
+      <span class="toast-text" id="toast-text"></span>
+      <button class="toast-undo" id="toast-undo" type="button">Undo</button>
+    </div>
+
+    <div class="toolbar">
+      <label class="search">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+          <circle cx="7" cy="7" r="4.5" />
+          <path d="m10.5 10.5 3 3" />
+        </svg>
+        <input id="search" type="search" placeholder="Search tabs" autocomplete="off" spellcheck="false" aria-label="Search tabs" />
+      </label>
+      <div class="segmented" role="tablist">
+        <button type="button" role="tab" data-view="tabs" aria-selected="true">Tabs</button>
+        <button type="button" role="tab" data-view="activity" aria-selected="false">Activity</button>
+      </div>
+    </div>
+
+    <div class="offer" id="hunger-offer" hidden>
+      <span class="appetite" data-level="3" aria-hidden="true"
+        ><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span
+      ></span>
+      <div class="offer-text">
+        <p class="offer-title">See which tabs are hungry</p>
+        <p class="offer-body">
+          Doze can measure how much memory each page uses, spot pages that keep working in the
+          background, and notice unsent typing so it never sleeps a half-written message. It only
+          measures, and nothing leaves your Mac.
+        </p>
+        <div class="offer-actions">
+          <button class="button primary" id="hunger-on" type="button">Turn on</button>
+          <button class="link" id="hunger-later" type="button">Not now</button>
+        </div>
+      </div>
+    </div>
+
+    <main id="lists"></main>
+    <main id="activity" hidden></main>
+
+    <section class="settings" id="settings" hidden>
+      <label class="field">
+        <span>Auto-sleep tabs idle for</span>
+        <select id="auto-sleep">
+          <option value="0">Off</option>
+          <option value="15">15 minutes</option>
+          <option value="30">30 minutes</option>
+          <option value="60">1 hour</option>
+          <option value="120">2 hours</option>
+          <option value="240">4 hours</option>
+        </select>
+      </label>
+      <label class="field">
+        <span>Open Doze in the side panel<small>The toolbar icon and ⌥⇧D open the panel instead of this popup</small></span>
+        <input id="open-in-panel" type="checkbox" />
+      </label>
+      <label class="field">
+        <span>Hunger meter<small>Measures memory use and unsent typing inside pages</small></span>
+        <input id="hunger" type="checkbox" />
+      </label>
+      <label class="field">
+        <span>Keep pinned tabs awake<small>You can still sleep them yourself</small></span>
+        <input id="protect-pinned" type="checkbox" />
+      </label>
+      <div class="field column">
+        <span>Sites kept awake</span>
+        <ul id="kept-hosts" class="chips"></ul>
+      </div>
+      <p class="hint">
+        In Chrome: <kbd>⌥⇧S</kbd> sleeps selected tabs, <kbd>⌥⇧O</kbd> sleeps the rest of the
+        window, <kbd>⌥⇧D</kbd> opens Doze. Change them at <code>chrome://extensions/shortcuts</code>.
+      </p>
+    </section>
+
+    <footer class="footer">
+      <span class="keys" title="↑↓ to move, ↵ to open"><kbd>⌘S</kbd> sleep <kbd>⌘⌫</kbd> close <kbd>⌘K</kbd> keep</span>
+      <span class="footer-links">
+        <button id="open-panel" class="link" type="button" title="Open Doze in Chrome's side panel">Side panel</button>
+        <button id="settings-toggle" class="link" type="button" aria-expanded="false">Settings</button>
+      </span>
+    </footer>
+
+  </body>
+</html>
