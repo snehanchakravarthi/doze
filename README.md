@@ -31,7 +31,7 @@ With dozens of tabs open, Chrome can make a Mac with plenty of RAM feel slow. Ch
 Doze isn't on the Chrome Web Store yet. To run it from source you need [Bun](https://bun.sh).
 
 ```bash
-git clone <this repo>
+git clone https://github.com/SnehanChakravarthi/doze.git
 cd doze
 bun install
 bun run build
