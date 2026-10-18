@@ -4,6 +4,8 @@
 
 A sleeping tab stays in your tab strip with its title and icon. Click it and it reloads. Doze decides which tabs can sleep, explains why, measures what it freed, and learns when it gets one wrong.
 
+**[Add Doze to Chrome](https://chromewebstore.google.com/detail/lccdmcfibfkkajldbmcnomeiddbedihg)** · free on the Chrome Web Store
+
 <p align="center">
   <img src="docs/popup-dark.png" alt="Doze popup in dark mode: a memory gauge, three tabs ready to sleep with hunger dots, and a duplicate to close" width="420" />
   <img src="docs/popup-light.png" alt="The same popup in light mode" width="420" />
@@ -28,7 +30,11 @@ With dozens of tabs open, Chrome can make a Mac with plenty of RAM feel slow. Ch
 
 ## Install
 
-Doze isn't on the Chrome Web Store yet. To run it from source you need [Bun](https://bun.sh).
+Install it from the **[Chrome Web Store](https://chromewebstore.google.com/detail/lccdmcfibfkkajldbmcnomeiddbedihg)**. Requires Chrome 121 or later.
+
+### From source
+
+To build it yourself you need [Bun](https://bun.sh).
 
 ```bash
 git clone https://github.com/SnehanChakravarthi/doze.git
@@ -38,8 +44,6 @@ bun run build
 ```
 
 Then open `chrome://extensions`, turn on **Developer mode**, click **Load unpacked** and choose the `dist` folder. After pulling changes, run `bun run build` again and press the reload arrow on Doze's card.
-
-Requires Chrome 121 or later.
 
 ## Using it
 
@@ -121,7 +125,6 @@ The logic in `scoring.ts`, `system.ts` and `activity.ts` makes no `chrome.*` cal
 - Group tabs by task with Chrome's on-device AI (Gemini Nano), and sleep or save whole groups
 - Saved sessions: close a group of tabs now, restore it later in one click
 - Typed commands, like "sleep everything except work"
-- Chrome Web Store release
 
 ## License
 
